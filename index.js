@@ -7,8 +7,12 @@ require("dotenv").config();
 
 const app = express();
 
-// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://taskmanagerbini.netlify.app"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
