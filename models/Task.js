@@ -7,10 +7,16 @@ const getTasks = async (userId) => {
   return rows;
 };
 
-const createTask = async (userId, title, description) => {
-  await db.query(
-    "INSERT INTO tasks (user_id, title, description) VALUES (?, ?, ?)",
-    [userId, title, description]
+const createTask = async (
+  id,
+  userId,
+  title,
+  description,
+  completed = false
+) => {
+  const res = await db.query(
+    "INSERT INTO tasks (id,user_id, title, description,completed) VALUES (?,?, ?, ?,?)",
+    [id, userId, title, description, completed]
   );
 };
 

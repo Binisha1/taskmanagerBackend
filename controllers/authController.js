@@ -5,6 +5,9 @@ require("dotenv").config();
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
+  }
   const existingUser = await findUserByEmail(email);
   if (existingUser)
     return res.status(400).json({ message: "User already exists" });
@@ -16,6 +19,9 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
+  }
   const user = await findUserByEmail(email);
   if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
@@ -35,14 +41,7 @@ exports.login = async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
     })
-    .json({
-      message: "Logged in successfully",
-      token, // 👈 include the token in response
-      user: {
-        id: user.id,
-        email: user.email,
-      },
-    });
+    .json({ message: "Logged in successfully" });
 };
 
 exports.logout = (req, res) => {

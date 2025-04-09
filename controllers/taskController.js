@@ -6,9 +6,12 @@ exports.getUserTasks = async (req, res) => {
 };
 
 exports.addTask = async (req, res) => {
-  const { title, description } = req.body;
-  await createTask(req.user.id, title, description);
-  res.status(201).json({ message: "Task created" });
+  const { id, title, description, completed } = req.body;
+  await createTask(id, req.user.id, title, description, completed);
+  res.status(201).json({
+    task: { id, title, description, completed },
+    message: "Task created",
+  });
 };
 
 exports.removeTask = async (req, res) => {
