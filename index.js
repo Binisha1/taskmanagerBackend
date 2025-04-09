@@ -8,7 +8,11 @@ require("dotenv").config();
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://taskmanagerbini.netlify.app"],
+  origin: [
+    "http://localhost:5173",
+    "https://taskmanagerbini.netlify.app",
+    "https://taskmanagerbini.vercel.app/",
+  ],
 };
 
 app.use(cors(corsOptions));
