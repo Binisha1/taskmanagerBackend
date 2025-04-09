@@ -13,6 +13,7 @@ const corsOptions = {
     "https://taskmanagerbini.netlify.app",
     "https://taskmanagerbini.vercel.app",
   ],
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
