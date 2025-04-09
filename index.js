@@ -11,7 +11,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://taskmanagerbini.netlify.app",
-    "https://taskmanagerbini.vercel.app/",
+    "https://taskmanagerbini.vercel.app",
   ],
 };
 
