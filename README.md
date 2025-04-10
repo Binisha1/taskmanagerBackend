@@ -2,7 +2,7 @@
 
 A simple task management backend built with Node.js, Express, and MySQL. It supports user authentication and CRUD operations for tasks.
 
----
+
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ You can use **any MySQL-compatible database** like:
 
 ## Database Setup
 
-First, create a database named `task_manager`, and run the following SQL to create the required tables:
+First, create a database, and run the following SQL to create the required tables:
 
 ```sql
 CREATE TABLE users (
@@ -35,10 +35,12 @@ CREATE TABLE tasks (
   completed BOOLEAN DEFAULT FALSE
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
+```
 
 ---
 
 ## Create .env file with following:
+
 PORT=
 DB_HOST=localhost          # Replace with your db host
 DB_USER=app_user           # Replace with your MySQL-compatible DB user
@@ -51,6 +53,7 @@ JWT_EXPIRES_IN=1d
 ---
 
 ## Run the Server
+
 ### 1. Install dependencies:
 ```pnpm install```
 
