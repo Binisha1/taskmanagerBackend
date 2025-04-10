@@ -41,6 +41,7 @@ CREATE TABLE tasks (
 
 ## Create .env file with following:
 
+```
 PORT=
 DB_HOST=localhost          # Replace with your db host
 DB_USER=app_user           # Replace with your MySQL-compatible DB user
@@ -49,7 +50,7 @@ DB_NAME=task_manager       # Replace if you used a different DB name
 
 JWT_SECRET=secret_key      #replace with your secret key
 JWT_EXPIRES_IN=1d
-
+```
 ---
 
 ## Run the Server
